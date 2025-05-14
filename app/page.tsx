@@ -8,7 +8,10 @@ export default function Home() {
     fetch(process.env.NEXT_PUBLIC_API_URL)
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
-      .catch((err) => setMessage("Error contacting backend"));
+      .catch((err) => {
+        console.error(err);
+        setMessage("Error contacting backend");
+      });
   }, []);
 
   return (
