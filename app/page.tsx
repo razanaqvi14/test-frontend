@@ -5,7 +5,7 @@ export default function Home() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    fetch("https://test-backend-ukft.onrender.com")
+    fetch(process.env.NEXT_PUBLIC_API_URL)
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
       .catch((err) => setMessage("Error contacting backend"));
